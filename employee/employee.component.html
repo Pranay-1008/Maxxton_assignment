@@ -1,0 +1,108 @@
+<div>
+    <h1>Sort by name, joining date.</h1>
+</div>
+<diV >
+    <table id="candidate" style="width: 40%;">
+        <thead>
+            <tr>
+                <th style="text-align: center;">Id</th>
+                <th style="text-align: center;">Name</th>
+                <th style="text-align: center;">Department</th>
+                <th style="text-align: center;">Joining-Date</th>
+            </tr >
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of sort">
+                <td style="text-align: center;">{{item.id}}</td>
+                <td style="text-align: center;">{{item.name}}</td>
+                <td style="text-align: center;">{{item.department}}</td>
+                <td style="text-align: center;">{{item.joining_date}}</td>
+            </tr>
+        </tbody>
+    </table>
+</diV>
+
+<div style="padding-top: 20px;padding-bottom: 10px;">
+    <h1>Search by name.</h1>
+    <input type="text" [(ngModel)]="ObjName" (ngModelChange)="SearchByName()" style="height: 42px;" placeholder="Enter Candidate Name">
+</div>
+<diV *ngIf="ObjName != ''" >
+    <table id="candidate" style="width: 40%;">
+        <thead>
+            <tr>
+                <th style="text-align: center;">Id</th>
+                <th style="text-align: center;">Name</th>
+                <th style="text-align: center;">Department</th>
+                <th style="text-align: center;">Joining-Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of candidates_data">
+                <td style="text-align: center;">{{item.id}}</td>
+                <td style="text-align: center;">{{item.name}}</td>
+                <td style="text-align: center;">{{item.department}}</td>
+                <td style="text-align: center;">{{item.joining_date}}</td>
+            </tr>
+        </tbody>
+    </table>
+</diV>
+
+<div style="padding-top: 20px;">
+    <h1>Find all candidates with experience more than 2 years.</h1>
+</div>
+<diV >
+    <table id="candidate" style="width: 40%;" >
+        <thead>
+            <tr>
+                <th style="text-align: center;">Id</th>
+                <th style="text-align: center;">Name</th>
+                <th style="text-align: center;">Department</th>
+                <th style="text-align: center;">Joining-Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of candidatesExp_data">
+                <td style="text-align: center;">{{item.id}}</td>
+                <td style="text-align: center;">{{item.name}}</td>
+                <td style="text-align: center;">{{item.department}}</td>
+                <td style="text-align: center;">{{item.joining_date}}</td>
+            </tr>
+        </tbody>
+    </table>
+</diV>
+
+<div style="padding-top: 20px;">
+    <h1>Get distinct departments and count of candidates in each.</h1>
+</div>
+<diV>
+    <div *ngFor="let item of b | keyvalue">
+        <b>{{item.key}}</b> = <b>{{item.value}}</b>
+    </div>
+</diV>
+
+<div style="padding-top: 20px;">
+    <h1>Remove all candidates from 'Development' department.</h1>
+</div>
+<diV >
+    <table  style="width: 40%;" id="candidate">
+        <thead>
+            <tr>
+                <th style="text-align: center;">Id</th>
+                <th style="text-align: center;">Name</th>
+                <th style="text-align: center;">Department</th>
+                <th style="text-align: center;">Joining-Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of remove_Development">
+                <td style="text-align: center;">{{item.id}}</td>
+                <td style="text-align: center;">{{item.name}}</td>
+                <td style="text-align: center;">{{item.department}}</td>
+                <td style="text-align: center;">{{item.joining_date}}</td>
+            </tr>
+        </tbody>
+    </table>
+</diV>
+
+
+
